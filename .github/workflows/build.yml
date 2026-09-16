@@ -56,8 +56,17 @@ jobs:
       - name: Find APK
         run: |
           find . -type f -name "*.apk" -print
+
+      - name: Find AAR
+        run: |
+          find . -type f -name "*.aar" -print
           
       - uses: actions/upload-artifact@v7
         with:
           name: mpv-android-apk
           path: app/build/outputs/apk/**/*.apk  # <- ADICIONADO: pega o APK instalável
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: mpv-lib-x86_64
+          path: /lib/build/outputs/aar/*.aar
