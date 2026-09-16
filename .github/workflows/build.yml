@@ -1,7 +1,7 @@
 name: build
 
 on:
-  - pull_request
+  workflow_dispatch:   # <- adiciona isso pra poder disparar manual, sem precisar de PR
 
 jobs:
   linux:
@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        architecture: [ armv7l, arm64, x86, x86_64 ]
+        architecture: [ x86_64 ]   # <- só a que você precisa, corta o resto
     permissions:
       contents: write
 
@@ -50,10 +50,10 @@ jobs:
           unset ANDROID_SDK_ROOT
           cd buildscripts
           ./download.sh > /dev/null
-          ./buildall.sh --arch ${{ matrix.architecture }} mpv
+          ./buildall.sh --arch x86_64 mpv
           ./buildall.sh -n
 
       - uses: actions/upload-artifact@v7
         with:
-          name: mpv-lib-${{ matrix.architecture }}
-          path: lib/build/outputs/aar/app-release.aar
+          name: mpv-android-apk
+          path: app/build/outputs/apk/debug/app-debug.apk   # <- ADICIONADO: pega o APK instalável
