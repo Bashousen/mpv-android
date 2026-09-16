@@ -20,9 +20,9 @@ fi
 # ffmpeg
 if [ ! -d ffmpeg ]; then
     git clone --branch $v_ffmpeg --depth 1 https://github.com/FFmpeg/FFmpeg ffmpeg
-    cd ffmpeg
-    git apply ../../patches/ffmpeg_force_mpegts.patch
-    cd ..
+    # cd ffmpeg
+    # git apply ../../patches/ffmpeg_force_mpegts.patch
+    # cd ..
 fi
 
 # freetype2
