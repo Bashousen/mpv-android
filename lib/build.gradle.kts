@@ -28,20 +28,7 @@ android {
     }
 
     packagingOptions {
-        jniLibs {
-            excludes.addAll(
-               listOf(
-                   "**/libavcodec.so",
-                   "**/libavdevice.so",
-                   "**/libavfilter.so",
-                   "**/libavformat.so",
-                   "**/libavutil.so",
-                   "**/libswresample.so",
-                   "**/libswscale.so",
-                   "**/libc++_shared.so",
-               )
-            )
-        }
+        jniLibs {}
     }
 
     tasks.withType<KotlinCompile> {
