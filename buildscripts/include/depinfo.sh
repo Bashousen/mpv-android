@@ -15,7 +15,7 @@ v_harfbuzz=13.0.1
 v_fribidi=1.0.16
 v_freetype=2.14.2
 v_mbedtls=3.6.5
-v_ffmpeg=n7.1.5
+v_ffmpeg=n8.0
 v_libxml2=2.15.2
 v_fontconfig=2.17.1
 
