@@ -53,7 +53,11 @@ jobs:
           ./buildall.sh --arch x86_64 mpv
           ./buildall.sh -n
 
+      - name: Find APK
+        run: |
+          find . -type f -name "*.apk" -print
+          
       - uses: actions/upload-artifact@v7
         with:
           name: mpv-android-apk
-          path: app/build/output/app-debug.apk  # <- ADICIONADO: pega o APK instalável
+          path: app/build/outputs/apk/**/*.apk  # <- ADICIONADO: pega o APK instalável
